@@ -39,7 +39,7 @@ public class SecurityConfig {
                 "http://localhost:5173",
                 "https://taskapi-frontend.vercel.app"
         ));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
         return new UrlBasedCorsConfigurationSource(){{
