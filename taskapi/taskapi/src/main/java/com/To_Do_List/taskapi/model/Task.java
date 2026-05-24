@@ -32,7 +32,7 @@ public class Task {
     @Column(nullable = false)
     private Boolean completed = false;
 
-    @Column(nullable = false, updatable = false)
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @PrePersist
