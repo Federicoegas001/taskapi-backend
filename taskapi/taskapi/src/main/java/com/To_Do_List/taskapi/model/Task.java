@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 @DynamicUpdate // Esto hace que mandes a la base de datos solo los campos que cambniaste
@@ -29,4 +31,12 @@ public class Task {
     @NotNull(message = "El título es obligatorio")
     @Column(nullable = false)
     private Boolean completed = false;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 }
